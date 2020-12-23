@@ -1,0 +1,41 @@
+.listItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.content {
+}
+
+.title {
+  display: block;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.description {
+  display: block;
+  margin-top: 8px;
+  font-size: 14px;
+}
+
+.button {
+  margin-left: 12px;
+  flex-grow: 0;
+  height: 32px;
+  width: 54px;
+  background-color: #c3333f;
+  border-width: 0;
+  border-radius: 4px;
+  color: #ffffff;
+  cursor: pointer;
+  transition: background-color 0.1s ease-in-out;
+}
+
+.button:focus {
+  outline: #6f6fff 1px solid;
+}
+
+.button:hover {
+  background-color: #f53a4b;
+}
