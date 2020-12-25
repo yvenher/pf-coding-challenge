@@ -2,6 +2,8 @@ import { useState, useRef, useEffect } from "react";
 
 const COLORS = ["#ff2954", "#3cbd52", "#5c7cff", "#ffff57", "#ffffff"];
 
+const SHOW_POSITION_DELAY = 2000;
+
 function useWord(args) {
   const { onActive } = args;
   const [positionVisible, setPositionVisible] = useState(false);
@@ -28,6 +30,7 @@ function useWord(args) {
 
   const onStart = () => {
     onActive();
+    setPositionVisible(false);
     dragStartTime.current = Date.now();
     clearInterval(showPositionTimer.current);
   };
@@ -54,7 +57,7 @@ function useWord(args) {
     if (mouseOver) {
       showPositionTimer.current = setTimeout(() => {
         setPositionVisible(true);
-      }, 4000);
+      }, SHOW_POSITION_DELAY);
     } else {
       clearTimeout(showPositionTimer.current);
       setPositionVisible(false);
@@ -67,6 +70,7 @@ function useWord(args) {
     color: COLORS[colorIndex],
     clicked,
     confettiConfig,
+    positionVisible,
     ref,
   };
 }
