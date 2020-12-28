@@ -16,6 +16,7 @@ function DraggableWord(props) {
     positionVisible,
     ref,
   } = useWord({ onActive });
+
   const wordClassName = classNames(
     { [styles.visible]: visible },
     styles.draggableWord

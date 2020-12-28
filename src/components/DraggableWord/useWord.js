@@ -29,7 +29,6 @@ function useWord(args) {
   };
 
   const onStart = () => {
-    onActive();
     setPositionVisible(false);
     dragStartTime.current = Date.now();
     clearInterval(showPositionTimer.current);
@@ -46,6 +45,7 @@ function useWord(args) {
   };
 
   const onMouseEnter = () => {
+    onActive();
     setMouseOver(true);
   };
 

@@ -1,27 +1,30 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import classNames from "classnames";
 import styles from "./Tooltip.module.css";
 
-function ListItem(props) {
+function Tooltip(props) {
   const { visible } = props;
-  const [render, setRender] = useState(visible);
+  const [rendered, setRendered] = useState(visible);
+
+  useEffect(() => {
+    setTimeout(() => setRendered(visible), 0);
+  }, [visible]);
+
+  if (!visible && !rendered) {
+    return null;
+  }
+
   const className = classNames(
-    { [styles.visible]: visible, [styles.rendered]: render },
+    { [styles.rendered]: rendered },
     styles.tooltip,
     props.className
   );
 
-  useEffect(() => {
-    if (visible) {
-      setRender(true);
-    }
-  }, [visible]);
-
   return (
-    <div className={className} onTransitionEnd={() => setRender(visible)}>
+    <div className={className} onTransitionEnd={() => setRendered(visible)}>
       {props.children}
     </div>
   );
 }
 
-export default ListItem;
+export default Tooltip;

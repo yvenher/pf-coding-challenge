@@ -3,14 +3,9 @@
   background-color: #464646;
   color: #fff;
   opacity: 0;
-  transition: opacity 0.2s ease-in-out;
-  transform: scale(0);
-}
-
-.visible {
-  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
 }
 
 .rendered {
-  transform: scale(1);
+  opacity: 1;
 }
